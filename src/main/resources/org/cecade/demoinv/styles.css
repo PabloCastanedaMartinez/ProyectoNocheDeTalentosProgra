@@ -1,0 +1,186 @@
+/* === Fondo teal de la ventana === */
+.root-pane {
+    -fx-background-color: #5f9ea0;
+}
+
+/* === Panel principal gris claro === */
+.main-panel {
+    -fx-background-color: #d3d3d3;
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);
+}
+
+/* === Tarjeta de producto === */
+.product-card {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-alignment: center;
+    -fx-pref-width: 200;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 3);
+}
+
+.product-card .label {
+    -fx-text-fill: #333333;
+}
+
+/* === Contenedor de imagen placeholder === */
+.image-container {
+    -fx-background-color: #a0a0a0;
+    -fx-background-radius: 8;
+    -fx-padding: 5;
+}
+
+/* === Nombre del producto en tarjeta === */
+.product-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* === Cantidad en tarjeta === */
+.product-stock {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555;
+}
+
+/* === Info adicional === */
+.product-info-small {
+    -fx-font-size: 11px;
+    -fx-text-fill: #777;
+}
+
+/* === Botón Buscar Producto (amarillo) === */
+.btn-buscar {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #cccc66;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+.btn-buscar:hover {
+    -fx-background-color: #ffffbb;
+}
+
+/* === Botón Vender (verde claro) === */
+.btn-vender {
+    -fx-background-color: #ccff66;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #99cc33;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+.btn-vender:hover {
+    -fx-background-color: #ddff88;
+}
+
+/* === Botón Ingresar Producto (celeste) === */
+.btn-ingresar {
+    -fx-background-color: #99ffff;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #66cccc;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+.btn-ingresar:hover {
+    -fx-background-color: #bbffff;
+}
+
+/* === Selector de criterio === */
+.combo-criterio {
+    -fx-font-size: 13px;
+    -fx-pref-width: 220;
+}
+
+/* === TabPane === */
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 3 0 0 10;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #b0b0b0;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 5 15;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #d3d3d3;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+}
+
+/* === Search field === */
+.search-field {
+    -fx-font-size: 14px;
+    -fx-pref-width: 300;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12;
+}
+
+/* === Table === */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e0e0e0;
+    -fx-font-weight: bold;
+}
+
+/* === Ficha de producto === */
+.ficha-producto {
+    -fx-background-color: #e8e8e8;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+}
+
+.ficha-titulo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.ficha-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #444;
+}
+
+/* === Dialog styles === */
+.dialog-pane {
+    -fx-background-color: #e8e8e8;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #5f9ea0;
+}
+
+/* === Form labels === */
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
