@@ -1,4 +1,4 @@
-# demoInv — Gestor de Inventario (JavaFX + Gradle)
+#  Gestor de Inventario (JavaFX + Gradle)
 
 Aplicación de escritorio para gestionar un inventario simple: visualizar productos destacados, buscar, vender y registrar/ingresar productos. Está construida con **Java 21**, **JavaFX** y persistencia local en **JSON**.
 
