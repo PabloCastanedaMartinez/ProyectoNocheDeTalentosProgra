@@ -6,5 +6,37 @@
     "stock": 10,
     "ventasUltimos30Dias": 60,
     "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\ChatGPT Image 14 mar 2026, 09_08_24 p.m..png"
+  },
+  {
+    "id": 2,
+    "nombre": "espagetti",
+    "precioUnitario": 15.00,
+    "stock": 60,
+    "ventasUltimos30Dias": 43,
+    "rutaImagenLocal": "images/placeholder.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Candado",
+    "precioUnitario": 32,
+    "stock": 50,
+    "ventasUltimos30Dias": 10,
+    "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\ChatGPT Image 14 mar 2026, 09_13_24 p.m..png"
+  },
+  {
+    "id": 4,
+    "nombre": "Test",
+    "precioUnitario": 10,
+    "stock": 100,
+    "ventasUltimos30Dias": 0,
+    "rutaImagenLocal": "images/placeholder.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Test2",
+    "precioUnitario": 20,
+    "stock": 50,
+    "ventasUltimos30Dias": 0,
+    "rutaImagenLocal": "images/placeholder.png"
   }
 ]

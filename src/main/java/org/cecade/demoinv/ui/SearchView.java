@@ -40,6 +40,20 @@ public class SearchView extends VBox {
         this.getStyleClass().add("main-panel");
         this.setPadding(new Insets(20));
 
+        Button btnRefreshSearch = new Button("Refrescar");
+        btnRefreshSearch.getStyleClass().add("btn-refrescar");
+        btnRefreshSearch.setStyle("-fx-font-size: 13px; -fx-padding: 8 20");
+
+        btnRefreshSearch.setOnAction(e -> {
+            searchField.clear();
+
+            fichaBox.setVisible(false);
+            fichaBox.setManaged(false);
+            productoSeleccionado = null;
+
+            performSearch();
+        });
+
         // Search bar
         HBox searchBar = new HBox(10);
         searchBar.setAlignment(Pos.CENTER_LEFT);
@@ -58,7 +72,7 @@ public class SearchView extends VBox {
         btnSearch.setOnAction(e -> doSearchAction.run());
         searchField.setOnAction(e -> doSearchAction.run());
 
-        searchBar.getChildren().addAll(searchField, btnSearch);
+        searchBar.getChildren().addAll(searchField, btnSearch, btnRefreshSearch);
 
         // Results table
         tabla = new TableView<>();
