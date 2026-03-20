@@ -1,0 +1,56 @@
+[
+  {
+    "id": "c4be7c85-7e6b-4a9f-ac30-3d32622e9991",
+    "fecha": "2026-03-19T22:01:58.3012608",
+    "productoId": 1,
+    "productoNombre": "Laptop HP",
+    "cantidad": 50,
+    "costoUnitario": 2699,
+    "cantidadDisponible": 0
+  },
+  {
+    "id": "8ebb7f01-8b8c-44a2-b694-a659771874ce",
+    "fecha": "2026-03-19T22:02:30.3822021",
+    "productoId": 1,
+    "productoNombre": "Laptop HP",
+    "cantidad": 20,
+    "costoUnitario": 2399,
+    "cantidadDisponible": 10
+  },
+  {
+    "id": "b7f12850-0d56-47af-bb76-fbb9c2397785",
+    "fecha": "2026-03-20T10:12:48.6220251",
+    "productoId": 2,
+    "productoNombre": "espagetti",
+    "cantidad": 60,
+    "costoUnitario": 8.00,
+    "cantidadDisponible": 60
+  },
+  {
+    "id": "f9ada96d-4d96-4000-9e2d-01a5bb3d28c8",
+    "fecha": "2026-03-20T10:20:28.4979425",
+    "productoId": 3,
+    "productoNombre": "Candado",
+    "cantidad": 50,
+    "costoUnitario": 20,
+    "cantidadDisponible": 50
+  },
+  {
+    "id": "54cd021d-381c-4bbb-a48f-bc3c6584b3ee",
+    "fecha": "2026-03-20T10:46:33.848485",
+    "productoId": 4,
+    "productoNombre": "Test",
+    "cantidad": 100,
+    "costoUnitario": 5,
+    "cantidadDisponible": 100
+  },
+  {
+    "id": "76160ac0-b5ca-4536-9889-20059ef80f88",
+    "fecha": "2026-03-20T10:55:08.4939434",
+    "productoId": 5,
+    "productoNombre": "Test2",
+    "cantidad": 50,
+    "costoUnitario": 5,
+    "cantidadDisponible": 50
+  }
+]

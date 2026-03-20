@@ -2,121 +2,41 @@
   {
     "id": 1,
     "nombre": "Laptop HP",
-    "precioUnitario": 4999.99,
-    "stock": 25,
-    "ventasUltimos30Dias": 18,
-    "rutaImagenLocal": "images/laptop.png"
+    "precioUnitario": 3499,
+    "stock": 10,
+    "ventasUltimos30Dias": 60,
+    "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\ChatGPT Image 14 mar 2026, 09_08_24 p.m..png"
   },
   {
     "id": 2,
-    "nombre": "Mouse Logitech",
-    "precioUnitario": 199.50,
-    "stock": 140,
-    "ventasUltimos30Dias": 95,
-    "rutaImagenLocal": "images/mouse.png"
-  },
-  {
-    "id": 3,
-    "nombre": "Teclado Mecánico",
-    "precioUnitario": 349.00,
-    "stock": 70,
-    "ventasUltimos30Dias": 52,
-    "rutaImagenLocal": "images/teclado.png"
-  },
-  {
-    "id": 4,
-    "nombre": "Monitor 27\"",
-    "precioUnitario": 2799.00,
-    "stock": 30,
-    "ventasUltimos30Dias": 22,
-    "rutaImagenLocal": "images/monitor.png"
-  },
-  {
-    "id": 5,
-    "nombre": "Audífonos BT",
-    "precioUnitario": 599.99,
-    "stock": 200,
-    "ventasUltimos30Dias": 120,
-    "rutaImagenLocal": "images/audifonos.png"
-  },
-  {
-    "id": 6,
-    "nombre": "Webcam HD",
-    "precioUnitario": 450.00,
+    "nombre": "espagetti",
+    "precioUnitario": 15.00,
     "stock": 60,
-    "ventasUltimos30Dias": 35,
-    "rutaImagenLocal": "images/webcam.png"
-  },
-  {
-    "id": 7,
-    "nombre": "SSD 1TB",
-    "precioUnitario": 899.00,
-    "stock": 100,
-    "ventasUltimos30Dias": 55,
-    "rutaImagenLocal": "images/ssd.png"
-  },
-  {
-    "id": 8,
-    "nombre": "RAM 16GB",
-    "precioUnitario": 650.00,
-    "stock": 150,
-    "ventasUltimos30Dias": 58,
-    "rutaImagenLocal": "images/ram.png"
-  },
-  {
-    "id": 9,
-    "nombre": "Cable USB-C",
-    "precioUnitario": 89.90,
-    "stock": 300,
-    "ventasUltimos30Dias": 200,
-    "rutaImagenLocal": "images/cable.png"
-  },
-  {
-    "id": 10,
-    "nombre": "Hub USB",
-    "precioUnitario": 275.00,
-    "stock": 45,
-    "ventasUltimos30Dias": 15,
-    "rutaImagenLocal": "images/hub.png"
-  },
-  {
-    "id": 11,
-    "nombre": "Mousepad XL",
-    "precioUnitario": 159.00,
-    "stock": 120,
-    "ventasUltimos30Dias": 65,
-    "rutaImagenLocal": "images/mousepad.png"
-  },
-  {
-    "id": 12,
-    "nombre": "Cargador 65W",
-    "precioUnitario": 320.00,
-    "stock": 70,
-    "ventasUltimos30Dias": 30,
-    "rutaImagenLocal": "images/cargador.png"
-  },
-  {
-    "id": 13,
-    "nombre": "Laptop HP",
-    "precioUnitario": 4999.99,
-    "stock": 0,
-    "ventasUltimos30Dias": 10,
+    "ventasUltimos30Dias": 43,
     "rutaImagenLocal": "images/placeholder.png"
   },
   {
-    "id": 14,
-    "nombre": "Prueba",
-    "precioUnitario": 100.00,
-    "stock": 1000,
-    "ventasUltimos30Dias": 0,
-    "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\bbb.png"
+    "id": 3,
+    "nombre": "Candado",
+    "precioUnitario": 32,
+    "stock": 50,
+    "ventasUltimos30Dias": 10,
+    "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\ChatGPT Image 14 mar 2026, 09_13_24 p.m..png"
   },
   {
-    "id": 15,
-    "nombre": "chip",
-    "precioUnitario": 25,
+    "id": 4,
+    "nombre": "Test",
+    "precioUnitario": 10,
+    "stock": 100,
+    "ventasUltimos30Dias": 0,
+    "rutaImagenLocal": "images/placeholder.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Test2",
+    "precioUnitario": 20,
     "stock": 50,
-    "ventasUltimos30Dias": 20,
-    "rutaImagenLocal": "C:\\Users\\Pablo\\OneDrive\\Pictures\\bocchi la roca.png"
+    "ventasUltimos30Dias": 0,
+    "rutaImagenLocal": "images/placeholder.png"
   }
 ]

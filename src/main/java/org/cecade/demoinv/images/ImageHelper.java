@@ -1,4 +1,4 @@
-package org.cecade.demoinv;
+package org.cecade.demoinv.images;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

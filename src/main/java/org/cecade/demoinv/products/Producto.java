@@ -1,4 +1,4 @@
-package org.cecade.demoinv;
+package org.cecade.demoinv.products;
 
 import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicInteger;

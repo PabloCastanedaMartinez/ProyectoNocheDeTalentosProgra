@@ -51,6 +51,23 @@
     -fx-text-fill: #777;
 }
 
+ /* === Botón Refrescar Productos (amarillo) === */
+.btn-refrescar {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #cccc66;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+.btn-refrescar:hover {
+    -fx-background-color: #ffffbb;
+}
+
 /* === Botón Buscar Producto (amarillo) === */
 .btn-buscar {
     -fx-background-color: #ffff99;
