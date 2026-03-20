@@ -1,4 +1,4 @@
-package org.cecade.demoinv;
+package org.cecade.demoinv.products;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,34 +38,13 @@ public class ProductoRepository {
             } catch (Exception e) {
                 e.printStackTrace();
                 productos = new ArrayList<>();
-                cargarDatosPrecargados();
             }
         } else {
             productos = new ArrayList<>();
-            cargarDatosPrecargados();
-            guardar();
         }
     }
 
-    private void cargarDatosPrecargados() {
-        productos.clear();
-        productos.add(new Producto("Laptop HP", new BigDecimal("4999.99"), 25, 18, "images/laptop.png"));
-        productos.add(new Producto("Mouse Logitech", new BigDecimal("199.50"), 150, 85, "images/mouse.png"));
-        productos.add(new Producto("Teclado Mecánico", new BigDecimal("349.00"), 80, 42, "images/teclado.png"));
-        productos.add(new Producto("Monitor 27\"", new BigDecimal("2799.00"), 30, 22, "images/monitor.png"));
-        productos.add(new Producto("Audífonos BT", new BigDecimal("599.99"), 200, 120, "images/audifonos.png"));
-        productos.add(new Producto("Webcam HD", new BigDecimal("450.00"), 60, 35, "images/webcam.png"));
-        productos.add(new Producto("SSD 1TB", new BigDecimal("899.00"), 100, 55, "images/ssd.png"));
-        productos.add(new Producto("RAM 16GB", new BigDecimal("650.00"), 90, 48, "images/ram.png"));
-        productos.add(new Producto("Cable USB-C", new BigDecimal("89.90"), 300, 200, "images/cable.png"));
-        productos.add(new Producto("Hub USB", new BigDecimal("275.00"), 45, 15, "images/hub.png"));
-        productos.add(new Producto("Mousepad XL", new BigDecimal("159.00"), 120, 65, "images/mousepad.png"));
-        productos.add(new Producto("Cargador 65W", new BigDecimal("320.00"), 70, 30, "images/cargador.png"));
-
-        int maxId = productos.stream().mapToInt(Producto::getId).max().orElse(0);
-        Producto.syncIdGenerator(maxId);
-        guardar();
-    }
+    // cargarDatosPrecargados() eliminado para iniciar con inventario vacío.
 
     public void guardar() {
         try {

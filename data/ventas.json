@@ -1,0 +1,12 @@
+[
+  {
+    "id": "c6281a10-296d-43ce-838e-3111c0981866",
+    "fecha": "2026-03-19T22:02:40.2766705",
+    "productoId": 1,
+    "productoNombre": "Laptop HP",
+    "cantidad": 60,
+    "precioUnitario": 3499,
+    "totalVenta": 209940,
+    "costoTotal": 158940
+  }
+]

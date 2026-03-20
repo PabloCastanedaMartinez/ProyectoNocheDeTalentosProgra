@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c4be7c85-7e6b-4a9f-ac30-3d32622e9991",
+    "fecha": "2026-03-19T22:01:58.3012608",
+    "productoId": 1,
+    "productoNombre": "Laptop HP",
+    "cantidad": 50,
+    "costoUnitario": 2699,
+    "cantidadDisponible": 0
+  },
+  {
+    "id": "8ebb7f01-8b8c-44a2-b694-a659771874ce",
+    "fecha": "2026-03-19T22:02:30.3822021",
+    "productoId": 1,
+    "productoNombre": "Laptop HP",
+    "cantidad": 20,
+    "costoUnitario": 2399,
+    "cantidadDisponible": 10
+  }
+]
