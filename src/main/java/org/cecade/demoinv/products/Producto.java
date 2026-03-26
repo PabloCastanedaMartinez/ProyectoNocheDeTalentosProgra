@@ -1,6 +1,7 @@
 package org.cecade.demoinv.products;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producto {
@@ -12,6 +13,8 @@ public class Producto {
     private int stock;
     private int ventasUltimos30Dias;
     private String rutaImagenLocal;
+    private boolean enPromocion;
+    private LocalDateTime finPromocion;
 
     public Producto() {}
 
@@ -41,6 +44,22 @@ public class Producto {
 
     public String getRutaImagenLocal() { return rutaImagenLocal; }
     public void setRutaImagenLocal(String rutaImagenLocal) { this.rutaImagenLocal = rutaImagenLocal; }
+
+    public boolean isEnPromocion() {
+        return enPromocion;
+    }
+
+    public void setEnPromocion(boolean enPromocion) {
+        this.enPromocion = enPromocion;
+    }
+
+    public LocalDateTime getFinPromocion() {
+        return finPromocion;
+    }
+
+    public void setFinPromocion(LocalDateTime finPromocion) {
+        this.finPromocion = finPromocion;
+    }
 
     public static void syncIdGenerator(int maxId) {
         ID_GEN.set(maxId);

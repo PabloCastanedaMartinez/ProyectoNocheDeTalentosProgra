@@ -11,6 +11,8 @@ import org.cecade.demoinv.images.ImageHelper;
 import org.cecade.demoinv.products.Producto;
 import org.cecade.demoinv.services.InventoryService;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -159,6 +161,15 @@ public class DashboardView extends VBox {
         precio.getStyleClass().add("product-info-small");
 
         card.getChildren().addAll(imgContainer, nombre, stock, extra, precio);
+
+        if (p.isEnPromocion() && p.getFinPromocion() != null) {
+            long dias = ChronoUnit.DAYS.between(LocalDateTime.now(), p.getFinPromocion());
+            if (dias >= 0) {
+                Label promoLabel = new Label("¡PROMO! Quedan " + dias + " días");
+                promoLabel.getStyleClass().add("promo-label");
+                card.getChildren().add(promoLabel);
+            }
+        }
 
         // Click to select
         card.setOnMouseClicked(e -> {

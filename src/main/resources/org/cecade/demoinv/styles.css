@@ -48,10 +48,25 @@
 /* === Info adicional === */
 .product-info-small {
     -fx-font-size: 11px;
-    -fx-text-fill: #777;
 }
 
- /* === Botón Refrescar Productos (amarillo) === */
+/* === Promoción === */
+.promo-label {
+    -fx-text-fill: white;
+    -fx-background-color: #e74c3c;
+    -fx-padding: 3 6;
+    -fx-background-radius: 5;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.ficha-promo-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e74c3c;
+}
+
+/* === Botón Refrescar Productos (amarillo) === */
 .btn-refrescar {
     -fx-background-color: #ffff99;
     -fx-text-fill: #333;
@@ -119,6 +134,21 @@
     -fx-background-color: #bbffff;
 }
 
+.btn-modificar {
+    -fx-background-color: #dcabff;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #66cccc;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+.btn-modificar:hover {
+    -fx-background-color: #d2bbff;
+}
 /* === Selector de criterio === */
 .combo-criterio {
     -fx-font-size: 13px;
@@ -200,4 +230,3 @@
     -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
-

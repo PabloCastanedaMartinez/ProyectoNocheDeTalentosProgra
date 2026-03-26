@@ -188,4 +188,27 @@ public class InventoryService {
     public File generateReport(PeriodoReporte periodo) throws Exception {
         return reportService.generarReporte(periodo);
     }
+
+    public void updatePrice(int id, BigDecimal nuevoPrecio, boolean enPromocion, int diasPromocion) {
+        if (nuevoPrecio.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("El precio debe ser mayor que 0.");
+        }
+
+        if (enPromocion && diasPromocion <= 0) {
+            throw new IllegalArgumentException("La duración de la promoción debe ser mayor a 0 días.");
+        }
+
+        Producto product = getProductById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado."));
+
+        product.setPrecioUnitario(nuevoPrecio);
+        product.setEnPromocion(enPromocion);
+        if (enPromocion) {
+            product.setFinPromocion(LocalDateTime.now().plusDays(diasPromocion));
+        } else {
+            product.setFinPromocion(null);
+        }
+
+        productRepo.actualizar(product);
+    }
 }

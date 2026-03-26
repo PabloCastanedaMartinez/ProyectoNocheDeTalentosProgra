@@ -5,12 +5,13 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.util.Pair;
 import org.cecade.demoinv.images.ImageHelper;
 import org.cecade.demoinv.products.Producto;
 import org.cecade.demoinv.services.InventoryService;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class SearchView extends VBox {
 
@@ -28,6 +29,7 @@ public class SearchView extends VBox {
     private Label fichaStock;
     private Label fichaVentas;
     private Label fichaPrecio;
+    private Label fichaPromo;
 
     public SearchView(InventoryService service, Runnable onDataChanged) {
         this.service = service;
@@ -114,7 +116,18 @@ public class SearchView extends VBox {
         colPrecio.setCellValueFactory(data ->
                 new javafx.beans.property.SimpleStringProperty("Q " + data.getValue().getPrecioUnitario().toPlainString()));
 
-        tabla.getColumns().addAll(colNombre, colStock, colVentas, colPrecio);
+        TableColumn<Producto, String> colPromo = new TableColumn<>("Promoción");
+        colPromo.setCellValueFactory(data -> {
+            Producto p = data.getValue();
+            if (p.isEnPromocion() && p.getFinPromocion() != null) {
+                long dias = ChronoUnit.DAYS.between(LocalDateTime.now(), p.getFinPromocion());
+                if (dias < 0) return new javafx.beans.property.SimpleStringProperty("Vencida");
+                return new javafx.beans.property.SimpleStringProperty(dias + " días restantes");
+            }
+            return new javafx.beans.property.SimpleStringProperty("-");
+        });
+
+        tabla.getColumns().addAll(colNombre, colStock, colVentas, colPrecio, colPromo);
 
         tabla.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
@@ -143,6 +156,8 @@ public class SearchView extends VBox {
         fichaVentas.getStyleClass().add("ficha-label");
         fichaPrecio = new Label();
         fichaPrecio.getStyleClass().add("ficha-label");
+        fichaPromo = new Label();
+        fichaPromo.getStyleClass().add("ficha-promo-label"); // New style class if needed or reuse ficha-label
 
         Button btnVender = new Button("Vender este producto");
         btnVender.getStyleClass().add("btn-vender");
@@ -154,7 +169,12 @@ public class SearchView extends VBox {
         btnAddStock.setStyle("-fx-font-size: 13px; -fx-padding: 8 20;");
         btnAddStock.setOnAction(e -> handleAddStock());
 
-        fichaBox.getChildren().addAll(fichaTitulo, fichaImg, fichaStock, fichaVentas, fichaPrecio, btnVender, btnAddStock);
+        Button btnModifyPrice = new Button("Modificar Precio");
+        btnModifyPrice.getStyleClass().add("btn-modificar");
+        btnModifyPrice.setStyle("-fx-font-size: 13px; -fx-padding: 8 20;");
+        btnModifyPrice.setOnAction(e -> handleModifyPrice());
+
+        fichaBox.getChildren().addAll(fichaTitulo, fichaImg, fichaStock, fichaVentas, fichaPrecio, fichaPromo, btnVender, btnAddStock, btnModifyPrice);
     }
 
     private void performSearch() {
@@ -172,6 +192,23 @@ public class SearchView extends VBox {
             fichaStock.setText("Existencias: " + fresh.getStock());
             fichaVentas.setText("Ventas últimos 30 días: " + fresh.getVentasUltimos30Dias());
             fichaPrecio.setText("Precio unitario: Q " + fresh.getPrecioUnitario().toPlainString());
+
+            if (fresh.isEnPromocion() && fresh.getFinPromocion() != null) {
+                long dias = ChronoUnit.DAYS.between(LocalDateTime.now(), fresh.getFinPromocion());
+                if (dias >= 0) {
+                    fichaPromo.setText("¡EN PROMOCIÓN! Queda " + dias + " días.");
+                    fichaPromo.setVisible(true);
+                    fichaPromo.setManaged(true);
+                    // fichaPromo already has style class "ficha-promo-label" from setupFicha
+                } else {
+                    fichaPromo.setVisible(false);
+                    fichaPromo.setManaged(false);
+                }
+            } else {
+                fichaPromo.setVisible(false);
+                fichaPromo.setManaged(false);
+            }
+
             fichaBox.setVisible(true);
             fichaBox.setManaged(true);
         });
@@ -285,6 +322,107 @@ public class SearchView extends VBox {
 
             } catch (Exception ex) {
                 showError("Error al agregar stock", ex.getMessage());
+            }
+        });
+    }
+
+    void handleModifyPrice() {
+        if (productoSeleccionado == null) return;
+
+        Dialog<javafx.util.Pair<BigDecimal, javafx.util.Pair<Boolean, Integer>>> dialog = new Dialog<>();
+        dialog.setTitle("Modificar Precio - " + productoSeleccionado.getNombre());
+        dialog.setHeaderText("Producto: " + productoSeleccionado.getNombre() + "\nPrecio actual: Q " + productoSeleccionado.getPrecioUnitario().toPlainString());
+
+        ButtonType saveButtonType = new ButtonType("Guardar", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(saveButtonType, ButtonType.CANCEL);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 150, 10, 10));
+
+        TextField priceField = new TextField();
+        priceField.setText(productoSeleccionado.getPrecioUnitario().toPlainString());
+
+        CheckBox promoCheck = new CheckBox("Es promoción");
+
+        TextField daysField = new TextField();
+        daysField.setPromptText("Días");
+        daysField.setDisable(true);
+
+        promoCheck.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            daysField.setDisable(!newVal);
+            if (newVal) {
+                daysField.requestFocus();
+            }
+        });
+
+        if (productoSeleccionado.isEnPromocion()) {
+            promoCheck.setSelected(true);
+            // Optional: calculate remaining days? For now leaving empty as per requirement just to enable input.
+        }
+
+        grid.add(new Label("Nuevo Precio:"), 0, 0);
+        grid.add(priceField, 1, 0);
+        grid.add(promoCheck, 0, 1);
+        grid.add(new Label("Duración (días):"), 0, 2);
+        grid.add(daysField, 1, 2);
+
+        dialog.getDialogPane().setContent(grid);
+
+        javafx.application.Platform.runLater(priceField::requestFocus);
+
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == saveButtonType) {
+                try {
+                    String priceText = priceField.getText().trim();
+                    if (priceText.isEmpty()) return null;
+                    BigDecimal price = new BigDecimal(priceText);
+
+                    boolean isPromo = promoCheck.isSelected();
+                    int days = 0;
+                    if (isPromo) {
+                        try {
+                            days = Integer.parseInt(daysField.getText().trim());
+                        } catch (NumberFormatException e) {
+                            return null;
+                        }
+                    }
+                    return new javafx.util.Pair<>(price, new javafx.util.Pair<>(isPromo, days));
+                } catch (NumberFormatException e) {
+                    return null;
+                }
+            }
+            return null;
+        });
+
+        dialog.showAndWait().ifPresent(result -> {
+            try {
+                BigDecimal nuevoPrecio = result.getKey();
+                boolean isPromo = result.getValue().getKey();
+                int days = result.getValue().getValue();
+
+                service.updatePrice(productoSeleccionado.getId(), nuevoPrecio, isPromo, days);
+
+                Alert confirm = new Alert(Alert.AlertType.INFORMATION);
+                confirm.setTitle("Precio Actualizado");
+                confirm.setHeaderText("¡Precio modificado exitosamente!");
+
+                Producto updated = service.getProductById(productoSeleccionado.getId()).orElse(productoSeleccionado);
+                String promoText = isPromo ? "\nEn promoción por " + days + " días" : "";
+                confirm.setContentText(
+                        "Producto: " + updated.getNombre() +
+                                "\nNuevo precio unitario: Q " + updated.getPrecioUnitario().toPlainString() +
+                                promoText
+                );
+                confirm.showAndWait();
+
+                performSearch();
+                selectProduct(updated);
+                onDataChanged.run();
+
+            } catch (Exception ex) {
+                showError("Error al modificar precio", ex.getMessage());
             }
         });
     }
